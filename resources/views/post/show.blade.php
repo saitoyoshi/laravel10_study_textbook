@@ -17,6 +17,7 @@
                       <h1 class="text-lg text-gray-700 font-semibold">
                           {{ $post->title }}
                       </h1>
+                      <a href="{{ route('post.edit', $post) }}"><x-primary-button class="bg-teal-700 float-right">編集</x-primary-button></a>
                       <hr class="w-full">
                       <p class="mt-4 text-gray-600 py-4 whitespace-pre-line">{{$post->body}}</p>
                       @if($post->image)
@@ -25,7 +26,7 @@
                       <div>
                         (画像ファイル: {{ $post->image }})
                       </div>
-                      <img src="{{ asset('storage/images/' . $post->image) }}" alt="" srcset="">
+                      <img src="{{ asset('storage/images/' . $post->image) }}" alt="" srcset="" class="mx-auto" style="height: 300px;">
                       @endif
                       <div class="text-sm font-semibold flex flex-row-reverse">
                           <p> {{ $post->user->name }} • {{$post->created_at->diffForHumans()}}</p>
